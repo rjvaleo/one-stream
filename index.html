@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RJ Valeo — Scrum Master | Built for OneStream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ─── ONESTREAM BRAND TOKENS ─────────────────────────────────────── */
+:root {
+  --os-navy:       #0B1E3D;
+  --os-navy-mid:   #102B52;
+  --os-navy-light: #1A3A6B;
+  --os-blue:       #1B6EF3;
+  --os-blue-light: #3D84F7;
+  --os-blue-pale:  #E8F0FE;
+  --os-purple:     #6B3FA0;
+  --os-purple-mid: #8B5CF6;
+  --os-gold:       #F59E0B;
+  --os-green:      #10B981;
+  --os-red:        #EF4444;
+  --os-amber:      #F59E0B;
+
+  --bg-page:    #F8F9FC;
+  --bg-white:   #FFFFFF;
+  --bg-dark:    #0B1E3D;
+  --bg-section: #F0F4FF;
+
+  --text-primary:   #0B1E3D;
+  --text-secondary: #4A5568;
+  --text-muted:     #8896A8;
+  --text-white:     #FFFFFF;
+  --text-white-dim: rgba(255,255,255,0.75);
+
+  --border:       #E2E8F4;
+  --border-mid:   #CBD5E8;
+  --shadow-sm:    0 1px 3px rgba(11,30,61,0.08);
+  --shadow-md:    0 4px 16px rgba(11,30,61,0.10);
+  --shadow-lg:    0 8px 32px rgba(11,30,61,0.12);
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+
+  --sans: 'Manrope', 'Inter', sans-serif;
+  --body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-primary);
+  background: var(--bg-page);
+}
+
+/* ─── NAV ────────────────────────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-logo-box {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--os-blue) 0%, var(--os-purple) 100%);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.nav-name {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.nav-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+
+.nav-links a:hover {
+  background: var(--bg-section);
+  color: var(--os-blue);
+}
+
+.nav-cta {
+  background: var(--os-blue) !important;
+  color: white !important;
+  padding: 8px 18px !important;
+}
+
+.nav-cta:hover {
+  background: var(--os-blue-light) !important;
+  color: white !important;
+}
+
+/* ─── HERO ───────────────────────────────────────────────────────── */
+.hero {
+  background: var(--os-navy);
+  padding: 96px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(27,110,243,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: 200px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(107,63,160,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(27,110,243,0.15);
+  border: 1px solid rgba(27,110,243,0.3);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6BA8FF;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6BA8FF;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero-headline {
+  font-family: var(--sans);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--text-white);
+  margin-bottom: 24px;
+  max-width: 820px;
+}
+
+.hero-headline .accent {
+  background: linear-gradient(135deg, #6BA8FF 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-body {
+  font-size: 18px;
+  color: var(--text-white-dim);
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 680px;
+}
+
+.hero-stat {
+  flex: 1;
+  min-width: 140px;
+  padding: 24px 28px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-num {
+  font-family: var(--sans);
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero-stat-num .unit {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--text-white-dim);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ─── SECTION SHELLS ─────────────────────────────────────────────── */
+.section {
+  padding: 80px 48px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-alt {
+  background: var(--bg-white);
+}
+
+.section-dark {
+  background: var(--os-navy);
+}
+
+.section-tinted {
+  background: var(--bg-section);
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--os-blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--sans);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.section-dark .section-title { color: var(--text-white); }
+.section-dark .section-eyebrow { color: #6BA8FF; }
+
+.section-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.section-dark .section-desc { color: var(--text-white-dim); }
+
+/* ─── SPRINT BOARD ───────────────────────────────────────────────── */
+.board-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sprint-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sprint-pill.active {
+  background: #D1FAE5;
+  color: #065F46;
+}
+
+.sprint-pill.active::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--os-green);
+  animation: blink 2s infinite;
+}
+
+.sprint-pill.info {
+  background: var(--os-blue-pale);
+  color: #1E40AF;
+}
+
+.sprint-cap {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.board-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+.board-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.board-col-header.done-col { border-bottom-color: var(--os-green); }
+.board-col-header.done-col .board-col-title { color: var(--os-green); }
+.board-col-header.progress-col { border-bottom-color: var(--os-blue); }
+.board-col-header.progress-col .board-col-title { color: var(--os-blue); }
+
+.col-count {
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 2px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.board-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-mid);
+  transform: translateY(-1px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+
+.card.cat-ceremony::before { background: var(--os-blue); }
+.card.cat-people::before   { background: var(--os-green); }
+.card.cat-process::before  { background: var(--os-purple-mid); }
+.card.cat-delivery::before { background: var(--os-gold); }
+.card.done-card {
+  opacity: 0.6;
+  background: var(--bg-page);
+}
+
+.card-id {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+  font-family: 'Inter', monospace;
+}
+
+.card-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.card-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: var(--bg-section);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.card-pts {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--os-blue);
+  background: var(--os-blue-pale);
+  padding: 2px 7px;
+  border-radius: 100px;
+}
+
+/* ─── METRICS ────────────────────────────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.metric-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.metric-card.good::after  { background: var(--os-green); }
+.metric-card.blue::after  { background: var(--os-blue); }
+.metric-card.amber::after { background: var(--os-gold); }
+
+.metric-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.metric-value {
+  font-family: var(--sans);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metric-value.good  { color: var(--os-green); }
+.metric-value.blue  { color: var(--os-blue); }
+.metric-value.amber { color: var(--os-gold); }
+
+.metric-delta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.metric-context {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.vel-block {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.vel-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.vel-label-row .metric-eyebrow { margin-bottom: 0; }
+
+.vel-trend {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--os-green);
+  background: #D1FAE5;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.velocity-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 100px;
+}
+
+.vel-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.vel-bar {
+  width: 100%;
+  background: var(--os-blue-pale);
+  border-radius: 4px 4px 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  transition: all 0.2s;
+}
+
+.vel-bar:hover { background: var(--os-blue); }
+.vel-bar.current { background: var(--os-green); border-color: var(--os-green); }
+
+.vel-sprint-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ─── RETRO ──────────────────────────────────────────────────────── */
+.retro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.retro-col {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.retro-col-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.retro-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.went-well .retro-col-head { border-top: 3px solid var(--os-green); }
+.went-well .retro-icon { background: #D1FAE5; }
+.went-well .retro-col-title { color: #065F46; }
+
+.improve .retro-col-head { border-top: 3px solid var(--os-gold); }
+.improve .retro-icon { background: #FEF3C7; }
+.improve .retro-col-title { color: #92400E; }
+
+.actions .retro-col-head { border-top: 3px solid var(--os-blue); }
+.actions .retro-icon { background: var(--os-blue-pale); }
+.actions .retro-col-title { color: #1E40AF; }
+
+.retro-col-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.retro-items {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retro-item {
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  transition: all 0.15s;
+}
+
+.retro-item:hover {
+  border-color: var(--border-mid);
+  color: var(--text-primary);
+  background: var(--bg-white);
+}
+
+.retro-item-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* ─── IMPEDIMENT TABLE ───────────────────────────────────────────── */
+.imp-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.imp-table th {
+  background: var(--bg-section);
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.imp-table td {
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.imp-table tr:last-child td { border-bottom: none; }
+.imp-table tr:hover td {
+  background: var(--bg-section);
+  color: var(--text-primary);
+}
+
+.imp-id {
+  font-family: 'Inter', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-resolved  { background: #D1FAE5; color: #065F46; }
+.status-progress  { background: var(--os-blue-pale); color: #1E40AF; }
+.status-escalated { background: #FEE2E2; color: #991B1B; }
+
+.priority-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.priority-high { background: #FEE2E2; color: #991B1B; }
+.priority-med  { background: #FEF3C7; color: #92400E; }
+.priority-low  { background: var(--bg-page); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* ─── WORKING AGREEMENTS ─────────────────────────────────────────── */
+.agreements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.agreement {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+
+.agreement:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--os-blue);
+}
+
+.agreement-num {
+  width: 36px;
+  height: 36px;
+  background: var(--os-blue-pale);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--os-blue);
+  flex-shrink: 0;
+}
+
+.agreement-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.agreement-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── VALUES CALLOUT (DARK) ──────────────────────────────────────── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.value-cell {
+  padding: 28px 24px;
+  background: rgba(255,255,255,0.03);
+  transition: background 0.2s;
+}
+
+.value-cell:hover { background: rgba(255,255,255,0.07); }
+
+.value-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.value-word {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.value-proof {
+  font-size: 12px;
+  color: var(--text-white-dim);
+  line-height: 1.65;
+}
+
+/* ─── SIGNAL CLOSE ───────────────────────────────────────────────── */
+.close-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.close-quote {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.close-quote .hl {
+  color: var(--os-blue);
+}
+
+.close-byline {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.close-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--os-blue) 0%, var(--os-purple) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+
+.close-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.close-title {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.close-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.close-card {
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+
+.close-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.close-card-value {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.close-card-value strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--os-blue);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--os-blue-light); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--os-blue);
+  border: 1.5px solid var(--os-blue);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--os-blue-pale);
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────── */
+.footer {
+  background: var(--os-navy);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-left {
+  font-size: 13px;
+  color: var(--text-white-dim);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: var(--text-white-dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover { color: var(--text-white); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 64px 24px 56px; }
+  .section { padding: 56px 24px; }
+  .board { grid-template-columns: repeat(2, 1fr); }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .retro-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .close-grid { grid-template-columns: 1fr; }
+  .agreements-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+}
+
+/* ─── UTILITY ────────────────────────────────────────────────────── */
+.text-center { text-align: center; }
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo-box">RV</div>
+    <div>
+      <div class="nav-name">Richard J. Valeo, CSM</div>
+      <div class="nav-sub">Scrum Master · Built for OneStream EPMO</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#board">Sprint Board</a></li>
+    <li><a href="#metrics">Metrics</a></li>
+    <li><a href="#retro">Retrospective</a></li>
+    <li><a href="#impediments">Impediments</a></li>
+    <li><a href="#values">Values Fit</a></li>
+    <li><a href="#closer" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Available · Q2 2026 · Remote — Eastern Time
+    </div>
+    <h1 class="hero-headline">
+      I don't need a ramp-up period.<br>
+      <span class="accent">I've already been doing this job.</span>
+    </h1>
+    <p class="hero-body">
+      Twelve years facilitating Agile delivery for IS Operations and application development teams.
+      Multiple concurrent Scrum teams. Backlogs refined a sprint ahead. Retrospectives that actually change something.
+      This page is what my work looks like. The resume just listed it.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">12<span class="unit">+</span></div>
+        <div class="hero-stat-label">Years as<br>Scrum Master</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">10<span class="unit">+</span></div>
+        <div class="hero-stat-label">Concurrent teams<br>facilitated</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">35<span class="unit">%</span></div>
+        <div class="hero-stat-label">Delivery predictability<br>improvement</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">~30<span class="unit">%</span></div>
+        <div class="hero-stat-label">Cycle time<br>reduction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRINT BOARD -->
+<section class="section section-alt" id="board">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Sprint 1 · Day 1–14</span>
+      <h2 class="section-title">OneStream Onboarding Board</h2>
+      <p class="section-desc">Not a 30-60-90 plan. An actual board. What I'd do in the first two weeks, written as stories — because that's how I think.</p>
+    </div>
+
+    <div class="board-meta">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="sprint-pill active">Sprint Active</span>
+        <span class="sprint-pill info">EPMO · Sprint 1</span>
+      </div>
+      <span class="sprint-cap">Sprint capacity: 42 pts &nbsp;·&nbsp; Committed: 38 pts &nbsp;·&nbsp; Remaining: 24 pts</span>
+    </div>
+
+    <div class="board">
+      <!-- BACKLOG -->
+      <div>
+        <div class="board-col-header">
+          <span class="board-col-title">Backlog</span>
+          <span class="col-count">3</span>
+        </div>
+        <div class="board-cards">
+          <div class="card cat-process">
+            <div class="card-id">ONB-009</div>
+            <div class="card-title">Shadow each team's existing standup format before suggesting changes</div>
+            <div class="card-tags"><span class="card-tag">observation</span><span class="card-tag">trust</span></div>
+            <div class="card-pts">3 pts</div>
+          </div>
+          <div class="card cat-people">
+            <div class="card-id">ONB-010</div>
+            <div class="card-title">Map informal communication patterns — who do people actually go to?</div>
+            <div class="card-tags"><span class="card-tag">org-dynamics</span></div>
+            <div class="card-pts">2 pts</div>
+          </div>
+          <div class="card cat-delivery">
+            <div class="card-id">ONB-011</div>
+            <div class="card-title">Audit Jira board: workflow states, field usage, stale tickets</div>
+            <div class="card-tags"><span class="card-tag">jira</span><span class="card-tag">hygiene</span></div>
+            <div class="card-pts">3 pts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IN PROGRESS -->
+      <div>
+        <div class="board-col-header progress-col">
+          <span class="board-col-title">In Progress</span>
+          <span class="col-count">4</span>
+        </div>
+        <div class="board-cards">
+          <div class="card cat-ceremony">
+            <div class="card-id">ONB-003</div>
+            <div class="card-title">Run first sprint planning with explicit DoR check on each story before acceptance</div>
+            <div class="card-tags"><span class="card-tag">ceremony</span><span class="card-tag">DoR</span></div>
+            <div class="card-pts">5 pts</div>
+          </div>
+          <div class="card cat-people">
+            <div class="card-id">ONB-004</div>
+            <div class="card-title">1:1s with each team member: what's working, what's broken, what they wish SM did differently</div>
+            <div class="card-tags"><span class="card-tag">people</span><span class="card-tag">listening</span></div>
+            <div class="card-pts">3 pts</div>
+          </div>
+          <div class="card cat-delivery">
+            <div class="card-id">ONB-005</div>
+            <div class="card-title">Review last 3 sprints' velocity and burndown — diagnose before touching anything</div>
+            <div class="card-tags"><span class="card-tag">metrics</span><span class="card-tag">diagnosis</span></div>
+            <div class="card-pts">3 pts</div>
+          </div>
+          <div class="card cat-process">
+            <div class="card-id">ONB-006</div>
+            <div class="card-title">Set up cross-team dependency board for Scrum-of-Scrums visibility</div>
+            <div class="card-tags"><span class="card-tag">SoS</span><span class="card-tag">jira</span></div>
+            <div class="card-pts">5 pts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IN REVIEW -->
+      <div>
+        <div class="board-col-header">
+          <span class="board-col-title">In Review</span>
+          <span class="col-count">2</span>
+        </div>
+        <div class="board-cards">
+          <div class="card cat-people">
+            <div class="card-id">ONB-001</div>
+            <div class="card-title">Draft working agreements with team — co-authored, not imposed</div>
+            <div class="card-tags"><span class="card-tag">foundation</span><span class="card-tag">agreements</span></div>
+            <div class="card-pts">3 pts</div>
+          </div>
+          <div class="card cat-ceremony">
+            <div class="card-id">ONB-002</div>
+            <div class="card-title">Schedule all recurring ceremonies — right people, no extras, on time</div>
+            <div class="card-tags"><span class="card-tag">ceremony</span><span class="card-tag">logistics</span></div>
+            <div class="card-pts">2 pts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DONE -->
+      <div>
+        <div class="board-col-header done-col">
+          <span class="board-col-title">Done</span>
+          <span class="col-count">3</span>
+        </div>
+        <div class="board-cards">
+          <div class="card cat-process done-card">
+            <div class="card-id">ONB-007 ✓</div>
+            <div class="card-title">Read process docs, team charters, and retrospective history</div>
+            <div class="card-tags"><span class="card-tag">onboarding</span></div>
+            <div class="card-pts">2 pts</div>
+          </div>
+          <div class="card cat-delivery done-card">
+            <div class="card-id">ONB-008 ✓</div>
+            <div class="card-title">Meet with Product Owner: backlog health, priorities, escalation preferences</div>
+            <div class="card-tags"><span class="card-tag">PO</span><span class="card-tag">alignment</span></div>
+            <div class="card-pts">3 pts</div>
+          </div>
+          <div class="card cat-people done-card">
+            <div class="card-id">ONB-000 ✓</div>
+            <div class="card-title">Accepted the job. Cleared the calendar. Showed up ready.</div>
+            <div class="card-tags"><span class="card-tag">day-0</span></div>
+            <div class="card-pts">∞</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="section section-tinted" id="metrics">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Delivery Record</span>
+      <h2 class="section-title">Career metrics I can walk you<br>through in the interview</h2>
+      <p class="section-desc">Every number here has a story behind it. The tilde on ~30% means it's honest.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card good">
+        <div class="metric-eyebrow">Delivery Predictability</div>
+        <div class="metric-value good">35%+</div>
+        <div class="metric-delta">↑ improvement · Eptura (SAFe, 10+ teams)</div>
+        <div class="metric-context">Introduced dependency mapping and Scrum-of-Scrums cadence. Cross-team conflicts caught 2–3 sprints earlier. Mid-sprint re-plans dropped significantly.</div>
+      </div>
+      <div class="metric-card good">
+        <div class="metric-eyebrow">Cycle Time Reduction</div>
+        <div class="metric-value good">~30%</div>
+        <div class="metric-delta">↑ improvement · AI/ML startup IS Ops teams</div>
+        <div class="metric-context">Re-sequenced delivery pipeline based on throughput data. The bottleneck was upstream dependencies, not engineering velocity. Fixed the system, not the symptom.</div>
+      </div>
+      <div class="metric-card blue">
+        <div class="metric-eyebrow">Concurrent Teams (Peak)</div>
+        <div class="metric-value blue">10+</div>
+        <div class="metric-delta">Eptura · Scrum-of-Scrums facilitation</div>
+        <div class="metric-context">Distributed across US and India. Managed ceremony schedules, dependency boards, and leadership reporting across all teams simultaneously.</div>
+      </div>
+      <div class="metric-card blue">
+        <div class="metric-eyebrow">Jira Rebuilds (from scratch)</div>
+        <div class="metric-value blue">3×</div>
+        <div class="metric-delta">Eptura · A&E Networks · Paperless Post</div>
+        <div class="metric-context">Custom workflows, fields, dashboards, sprint reporting. Not just a Jira user — a Jira configurator. Teams I've left still use the boards.</div>
+      </div>
+      <div class="metric-card good">
+        <div class="metric-eyebrow">Mid-Sprint Story Churn</div>
+        <div class="metric-value good">↓ sig.</div>
+        <div class="metric-delta">DoR discipline · Paperless Post</div>
+        <div class="metric-context">Coached PO partnership. Backlog stayed refined a sprint ahead. INVEST-ready stories before planning. Carryover dropped within 2 sprint cycles.</div>
+      </div>
+      <div class="metric-card amber">
+        <div class="metric-eyebrow">CSM Active Since</div>
+        <div class="metric-value amber">2014</div>
+        <div class="metric-delta">Scrum Alliance · Certified through 2028</div>
+        <div class="metric-context">Plus SAFe SSM (2014). Practiced in live SAFe environments at Eptura and DigitasLBI/SunTrust — not just cert-holding. The cert reflects the experience, not the other way around.</div>
+      </div>
+    </div>
+
+    <div class="vel-block">
+      <div class="vel-label-row">
+        <div class="metric-eyebrow">Sprint Velocity — Illustrative Team Trend (First 8 Sprints with New SM)</div>
+        <span class="vel-trend">↑ +57% over 8 sprints</span>
+      </div>
+      <div class="velocity-chart" id="vel-chart"></div>
+      <div style="display:flex;justify-content:space-between;margin-top:8px;">
+        <span style="font-size:11px;color:var(--text-muted);font-weight:600;">Sprint 1 (inherited baseline)</span>
+        <span style="font-size:11px;color:var(--os-green);font-weight:700;">Sprint 8 — team in rhythm ↑</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETRO -->
+<section class="section section-alt" id="retro">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Retrospective Artifact</span>
+      <h2 class="section-title">A retro on my own practice</h2>
+      <p class="section-desc">Any SM who can't run a retro on themselves isn't really running retros. Here's mine. Honest.</p>
+    </div>
+
+    <div class="retro-grid">
+      <div class="retro-col went-well">
+        <div class="retro-col-head">
+          <div class="retro-icon">✓</div>
+          <div class="retro-col-title">What went well</div>
+        </div>
+        <div class="retro-items">
+          <div class="retro-item">
+            <span class="retro-item-tag">Ceremony quality</span>
+            Standups end on time. Sprint planning ends with a committed, realistic goal. Every ceremony produces an artifact or a decision — not just attendance.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">PO partnership</span>
+            Backlogs stay healthy. I treat refinement as a practice, not a meeting. POs stop dreading it when it's run with discipline.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Jira as a tool, not a chore</span>
+            Teams I've left still use the dashboards I built. That's the metric.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Difficult conversations</span>
+            I'll tell a team their velocity is fiction. I'll tell a stakeholder scope creep is killing the sprint. Kindly. Clearly. With data.
+          </div>
+        </div>
+      </div>
+
+      <div class="retro-col improve">
+        <div class="retro-col-head">
+          <div class="retro-icon">△</div>
+          <div class="retro-col-title">What I'd improve</div>
+        </div>
+        <div class="retro-items">
+          <div class="retro-item">
+            <span class="retro-item-tag">Patience with slow adopters</span>
+            I move fast toward good process. Teams operating without discipline for years need more runway than I sometimes give them.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Documentation timing</span>
+            I write the thing, then document it. Working on making documentation part of the definition of done — not an afterthought.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Delegation vs. doing</span>
+            When something's broken, I fix it. Building the habit of coaching teams to fix it themselves takes deliberate restraint. Still working on it.
+          </div>
+        </div>
+      </div>
+
+      <div class="retro-col actions">
+        <div class="retro-col-head">
+          <div class="retro-icon">→</div>
+          <div class="retro-col-title">Action items</div>
+        </div>
+        <div class="retro-items">
+          <div class="retro-item">
+            <span class="retro-item-tag">Owner: RJ · Sprint 1</span>
+            Stand up the cross-team dependency board before touching any ceremony. Understand the system before changing any part of it.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Owner: RJ · Sprint 2</span>
+            Co-create working agreements with each team. Bring a draft — leave with theirs. Not mine.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Owner: RJ · Ongoing</span>
+            Mentor junior SMs by facilitating alongside them — not by telling them how. Show, then hand the room over.
+          </div>
+          <div class="retro-item">
+            <span class="retro-item-tag">Owner: RJ · Weekly</span>
+            Send delivery health summary to Operations Management. Data first. Narrative second. One page.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPEDIMENT LOG -->
+<section class="section section-tinted" id="impediments">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Impediment Register</span>
+      <h2 class="section-title">How I think about blockers</h2>
+      <p class="section-desc">From real engagements — anonymized, patterns intact. The SM brain in action.</p>
+    </div>
+
+    <table class="imp-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Impediment</th>
+          <th>Priority</th>
+          <th>Resolution approach</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="imp-id">IMP-001</td>
+          <td>PO unavailable for refinement — stories entering sprint without acceptance criteria</td>
+          <td><span class="priority-badge priority-high">High</span></td>
+          <td>Established async refinement protocol with 48hr PO SLA. Added DoR gate to planning. Escalated availability issue to Product Director.</td>
+          <td><span class="status-badge status-resolved">Resolved</span></td>
+        </tr>
+        <tr>
+          <td class="imp-id">IMP-002</td>
+          <td>Cross-team API dependency undiscovered until sprint day 6 — blocked two stories</td>
+          <td><span class="priority-badge priority-high">High</span></td>
+          <td>Added dependency mapping to sprint planning template. Introduced Scrum-of-Scrums specifically to surface this class of blocker pre-sprint.</td>
+          <td><span class="status-badge status-resolved">Resolved</span></td>
+        </tr>
+        <tr>
+          <td class="imp-id">IMP-003</td>
+          <td>5-day change board approval process incompatible with 2-week sprint cadence</td>
+          <td><span class="priority-badge priority-high">High</span></td>
+          <td>Escalated to VP Engineering with data: approval latency absorbing 35% of sprint capacity. Change board agreed to expedited lane for pre-approved ticket types.</td>
+          <td><span class="status-badge status-resolved">Resolved</span></td>
+        </tr>
+        <tr>
+          <td class="imp-id">IMP-004</td>
+          <td>US/India timezone conflict causing standup exclusion and async communication gaps</td>
+          <td><span class="priority-badge priority-med">Med</span></td>
+          <td>Restructured standup to rotation-friendly time. Added async standup option with structured Confluence format. Covered in working agreement.</td>
+          <td><span class="status-badge status-resolved">Resolved</span></td>
+        </tr>
+        <tr>
+          <td class="imp-id">IMP-005</td>
+          <td>Stakeholder adding scope mid-sprint directly to engineers, bypassing PO and sprint goal</td>
+          <td><span class="priority-badge priority-high">High</span></td>
+          <td>Facilitated three-party conversation. Named the pattern without blame. Established intake process. PO now has clear first-contact language for scope requests.</td>
+          <td><span class="status-badge status-resolved">Resolved</span></td>
+        </tr>
+        <tr>
+          <td class="imp-id">IMP-006</td>
+          <td>Team morale declining — burndown flat until day 8, then sprint heroics to close</td>
+          <td><span class="priority-badge priority-med">Med</span></td>
+          <td>Targeted retro on story sizing and work visibility. Broke epics into smaller stories. Added mid-sprint health check to standup. Burndown normalized over 3 sprints.</td>
+          <td><span class="status-badge status-progress">In Progress</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- VALUES FIT (DARK) -->
+<section class="section section-dark" id="values">
+  <div class="section-inner">
+    <div class="section-header text-center">
+      <span class="section-eyebrow">Values Alignment</span>
+      <h2 class="section-title">OneStream's core values.<br>Here's my proof of each one.</h2>
+      <p class="section-desc" style="margin:0 auto;">Bold. Authentic. Curious. Delivers. These aren't just words on a careers page — they're a checklist I can answer specifically.</p>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-cell">
+        <span class="value-icon">⚡</span>
+        <div class="value-word">Bold</div>
+        <div class="value-proof">I tell teams their velocity is a fiction when it is. I build a Kanban board as a job application instead of another cover letter. I escalate blockers to the VP when the data supports it — with the data in hand.</div>
+      </div>
+      <div class="value-cell">
+        <span class="value-icon">◎</span>
+        <div class="value-word">Authentic</div>
+        <div class="value-proof">The "what I'd improve" section of this page is real, not scripted. I run retros with genuine psychological safety because I model it. I've listed weaknesses in a job application. That's either authentic or crazy — possibly both.</div>
+      </div>
+      <div class="value-cell">
+        <span class="value-icon">◈</span>
+        <div class="value-word">Curious</div>
+        <div class="value-proof">I read the retro history before touching a ceremony. I diagnose the system producing the blocker, not just the blocker. I ask "why is velocity flat?" before recommending anything. Then I ask it again.</div>
+      </div>
+      <div class="value-cell">
+        <span class="value-icon">→</span>
+        <div class="value-word">Delivers</div>
+        <div class="value-proof">35%+ delivery predictability improvement. ~30% cycle time reduction. Jira boards teams still use after I'm gone. Retro actions that have owners and close dates. That's delivery — not activity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKING AGREEMENTS -->
+<section class="section section-alt" id="agreements">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Working Agreements Draft v0.1</span>
+      <h2 class="section-title">What I bring to the first team session</h2>
+      <p class="section-desc">A starting point — to be rewritten by the team, together. The SM's job is to show up with a draft, not a policy.</p>
+    </div>
+
+    <div class="agreements-grid">
+      <div class="agreement">
+        <div class="agreement-num">01</div>
+        <div>
+          <div class="agreement-title">Ceremonies start and end on time</div>
+          <div class="agreement-body">Respecting time is respecting each other. We don't wait for late arrivals and we don't run over for unprepared ones.</div>
+        </div>
+      </div>
+      <div class="agreement">
+        <div class="agreement-num">02</div>
+        <div>
+          <div class="agreement-title">Definition of Ready is a gate, not a suggestion</div>
+          <div class="agreement-body">A story without clear acceptance criteria doesn't enter sprint planning. Full stop. The PO knows this. The team expects it.</div>
+        </div>
+      </div>
+      <div class="agreement">
+        <div class="agreement-num">03</div>
+        <div>
+          <div class="agreement-title">Blockers surface in standup, not after</div>
+          <div class="agreement-body">If you knew yesterday, say it today. The SM removes blockers — but only the ones we know about.</div>
+        </div>
+      </div>
+      <div class="agreement">
+        <div class="agreement-num">04</div>
+        <div>
+          <div class="agreement-title">Retro actions have owners and due dates</div>
+          <div class="agreement-body">We don't generate a list and move on. Each action gets a name and a sprint to close. Reviewed at the top of the next retro.</div>
+        </div>
+      </div>
+      <div class="agreement">
+        <div class="agreement-num">05</div>
+        <div>
+          <div class="agreement-title">Jira is the source of truth</div>
+          <div class="agreement-body">Not Slack, not memory. If it's not in the ticket, it didn't happen. Status updated same day. We don't narrate work that isn't tracked.</div>
+        </div>
+      </div>
+      <div class="agreement">
+        <div class="agreement-num">06</div>
+        <div>
+          <div class="agreement-title">The SM protects the sprint goal, not individual tickets</div>
+          <div class="agreement-body">New work during a sprint goes through the PO and gets evaluated against what we committed to — not absorbed quietly by a willing engineer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNAL CLOSE -->
+<section class="section section-alt" id="closer">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Why OneStream</span>
+      <h2 class="section-title">The signal close</h2>
+    </div>
+
+    <div class="close-grid">
+      <div>
+        <p class="close-quote">
+          I've spent 12 years making sure software teams can do their best work.
+          <span class="hl">Not by managing them. By clearing the path.</span>
+          The ceremonies, the backlog, the cross-team dependencies, the Jira board nobody looks at until I rebuild it — that's my work.
+          <br><br>
+          OneStream's EPMO is the kind of environment where that work compounds. A platform company at scale, running multiple IS Operations and application development teams, with real complexity and real stakes.
+          <br><br>
+          I'm not looking for a title. I'm looking for a team that's <span class="hl">ready to get better</span> — and an organization that values the craft of Agile delivery, not just the vocabulary of it.
+        </p>
+        <div class="close-byline">
+          <div class="close-avatar">RV</div>
+          <div>
+            <div class="close-name">Richard J. Valeo, CSM</div>
+            <div class="close-title">Scrum Master · SAFe SSM · Georgetown, CO (Remote)</div>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="btn-primary" href="mailto:rjvaleo@gmail.com">→ Let's talk</a>
+          <a class="btn-secondary" href="https://www.linkedin.com/in/rjvaleo/" target="_blank">↗ LinkedIn</a>
+          <a class="btn-secondary" href="https://rjvaleo.github.io/rj-polymath-site/" target="_blank">↗ Portfolio</a>
+        </div>
+      </div>
+
+      <div class="close-right">
+        <div class="close-card">
+          <div class="close-card-label">Environments I've delivered in</div>
+          <div class="close-card-value"><strong>SaaS · Financial services · Media · Nonprofit · AI/ML</strong><br>IS Operations · Application development · Platform engineering · Mobile/web · SVOD</div>
+        </div>
+        <div class="close-card">
+          <div class="close-card-label">What I bring on Day 1</div>
+          <div class="close-card-value"><strong>No blank-notebook posture.</strong> I read the retro history, talk to the PO, review the last 3 sprints' velocity, and show up to planning with a point of view.</div>
+        </div>
+        <div class="close-card">
+          <div class="close-card-label">Remote track record</div>
+          <div class="close-card-value"><strong>100% remote since 2017.</strong> Distributed teams across US, India, Costa Rica. Built trust without a whiteboard. Ran ceremonies people actually liked attending.</div>
+        </div>
+        <div class="close-card">
+          <div class="close-card-label">What I need from the org</div>
+          <div class="close-card-value">Access to the teams. A real escalation path. A PO who shows up. <strong>Everything else I figure out.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    Richard J. Valeo, CSM &nbsp;·&nbsp; Built for OneStream EPMO · 2026 &nbsp;·&nbsp; rjvaleo@gmail.com
+  </div>
+  <div class="footer-links">
+    <a class="footer-link" href="https://www.linkedin.com/in/rjvaleo/" target="_blank">LinkedIn</a>
+    <a class="footer-link" href="https://rjvaleo.github.io/rj-polymath-site/" target="_blank">Portfolio</a>
+    <a class="footer-link" href="https://rjvaleo.github.io/enterprise-viewscreen/" target="_blank">Warp Screen Sim</a>
+    <a class="footer-link" href="mailto:rjvaleo@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+// Velocity bars
+const velData = [28, 31, 29, 34, 38, 40, 41, 44];
+const chart = document.getElementById('vel-chart');
+if (chart) {
+  const max = Math.max(...velData);
+  velData.forEach((v, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'vel-bar-wrap';
+    const bar = document.createElement('div');
+    bar.className = 'vel-bar' + (i === velData.length - 1 ? ' current' : '');
+    bar.style.height = Math.round((v / max) * 100) + '%';
+    bar.title = 'Sprint ' + (i + 1) + ': ' + v + ' pts';
+    const label = document.createElement('div');
+    label.className = 'vel-sprint-label';
+    label.textContent = 'S' + (i + 1);
+    wrap.appendChild(bar);
+    wrap.appendChild(label);
+    chart.appendChild(wrap);
+  });
+}
+
+// Smooth scroll for nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Nav active state on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.style.color = '');
+      const link = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+      if (link && !link.classList.contains('nav-cta')) link.style.color = 'var(--os-blue)';
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
